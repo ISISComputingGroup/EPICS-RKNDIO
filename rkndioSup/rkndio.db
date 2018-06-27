@@ -1,0 +1,6 @@
+record(stringin, "$(P)IDN"){
+    field(DESC, "Identification string")
+    field(DTYP, "stream")
+    field(INP,  "@rkndio.proto getIDN $(PORT)")
+    field(PINI, "YES")
+}

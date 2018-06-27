@@ -1,0 +1,7 @@
+Terminator = '\r\n';
+
+getIDN {
+    out "*IDN?";	
+    in "RIKENFE Prototype v1.0";   
+	wait 50;	
+}
