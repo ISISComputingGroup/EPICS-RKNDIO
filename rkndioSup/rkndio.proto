@@ -1,7 +1,19 @@
-Terminator = '\r\n';
+Terminator = CR LF;
 
 getIDN {
     out "*IDN?";	
-    in "RIKENFE Prototype v1.0";   
-	wait 50;	
+    in "%39c";	
+	wait 50;
+}
+
+getStatus {
+    out "STATUS";	
+    in "%39c";	
+	wait 50;
+}
+
+getError {
+    out "ERR";	
+    in "%39c";	
+	wait 50;
 }
