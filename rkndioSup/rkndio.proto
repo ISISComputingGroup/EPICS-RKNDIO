@@ -23,7 +23,7 @@ mismatch_get_error {
 
 get_input {
 	out "READ \$2";
-	in "%{False|True}";
+	in "%{FALSE|TRUE}";
 	@mismatch { mismatch_get_error; }
 }
 
