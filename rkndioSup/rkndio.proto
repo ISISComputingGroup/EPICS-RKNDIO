@@ -1,29 +1,34 @@
 Terminator = CR LF;
 
-getIDN {
+get_idn {
     out "*IDN?";	
     in "%39c";	
 }
 
-getStatus {
+get_status {
     out "STATUS";	
     in "%39c";
 }
 
-getError {
+get_error {
     out "ERR";	
     in "%39c";	
 }
 
-mismatchGetError {
+mismatch_get_error {
 	in "Error";
 	out "ERR";	
     in "(\$1)%39c";	
 }
 
-getState {
+get_input {
 	out "READ \$2";
 	in "%{False|True}";
-	wait 50;
-	@mismatch { mismatchGetError; }
+	@mismatch { mismatch_get_error; }
+}
+
+set_output {
+	out "WRITE \$2 %{FALSE|TRUE}";
+	in "OK";
+	@mismatch { mismatch_get_error; }
 }
