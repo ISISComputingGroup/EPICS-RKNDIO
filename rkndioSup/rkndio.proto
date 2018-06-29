@@ -16,7 +16,7 @@ get_error {
 }
 
 mismatch_get_error {
-	in "Error";
+	in "ERROR";
 	out "ERR";	
     in "(\$1)%39c";	
 }
