@@ -1,6 +1,6 @@
 record (bi, "$(P)PIN_$(PIN_NUMBER)") {
 	field(DESC, "Digital Input Pin $(PIN_NUMBER).")
-	field(SCAN, "1 second")
+	field(SCAN, ".1 second")
     field(DTYP, "stream")
 	
 	field(INP,  "@rkndio.proto get_input($(P)ERROR,$(PIN_NUMBER)) $(PORT)")

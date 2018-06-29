@@ -22,7 +22,7 @@ record(stringin, "$(P)IDN"){
 record(stringin, "$(P)STATUS"){
     field(DESC, "Status of the device.")
     field(DTYP, "stream")
-	field(SCAN, "1 second")
+	field(SCAN, ".5 second")
     field(INP,  "@rkndio.proto get_status $(PORT)")
 	
 	info(INTEREST, "HIGH")
@@ -35,7 +35,7 @@ record(stringin, "$(P)ERROR"){
     field(DESC, "Error status of the device.")
     field(DTYP, "stream")
 	
-	field(SCAN, "1 second")
+	field(SCAN, ".5 second")
     field(INP,  "@rkndio.proto get_error $(PORT)")
 	
 	info(INTEREST, "HIGH")
