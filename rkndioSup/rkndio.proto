@@ -3,17 +3,27 @@ Terminator = CR LF;
 getIDN {
     out "*IDN?";	
     in "%39c";	
-	wait 50;
 }
 
 getStatus {
     out "STATUS";	
-    in "%39c";	
-	wait 50;
+    in "%39c";
 }
 
 getError {
     out "ERR";	
     in "%39c";	
+}
+
+mismatchGetError {
+	in "Error";
+	out "ERR";	
+    in "(\$1)%39c";	
+}
+
+getState {
+	out "READ \$2";
+	in "%{False|True}";
 	wait 50;
+	@mismatch { mismatchGetError; }
 }

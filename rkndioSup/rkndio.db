@@ -18,3 +18,57 @@ record(stringin, "$(P)ERROR"){
 	field(SCAN, "1 second")
     field(INP,  "@rkndio.proto getError $(PORT)")
 }
+
+record (bi, "$(P)PIN_2") {
+	field(DESC, "Digital Input Pin 2.")
+    field(DTYP, "stream")
+	field(INP,  "@rkndio.proto getState($(P)ERROR,2) $(PORT)")
+	
+	field(ZNAM, "False")
+	field(ONAM, "True")
+}
+
+record (bi, "$(P)PIN_3") {
+	field(DESC, "Digital Input Pin 3.")
+    field(DTYP, "stream")
+	field(INP,  "@rkndio.proto getState($(P)ERROR,3) $(PORT)")
+	
+	field(ZNAM, "False")
+	field(ONAM, "True")
+}
+
+record (bi, "$(P)PIN_4") {
+	field(DESC, "Digital Input Pin 4.")
+    field(DTYP, "stream")
+	field(INP,  "@rkndio.proto getState($(P)ERROR,4) $(PORT)")
+	
+	field(ZNAM, "False")
+	field(ONAM, "True")
+}
+
+record (bi, "$(P)PIN_5") {
+	field(DESC, "Digital Input Pin 5.")
+    field(DTYP, "stream")
+	field(INP,  "@rkndio.proto getState($(P)ERROR,5) $(PORT)")
+	
+	field(ZNAM, "False")
+	field(ONAM, "True")
+}
+
+record (bi, "$(P)PIN_6") {
+	field(DESC, "Digital Input Pin 5.")
+    field(DTYP, "stream")
+	field(INP,  "@rkndio.proto getState($(P)ERROR,6) $(PORT)")
+	
+	field(ZNAM, "False")
+	field(ONAM, "True")
+}
+
+record (bi, "$(P)PIN_7") {
+	field(DESC, "Digital Input Pin 7.")
+    field(DTYP, "stream")
+	field(INP,  "@rkndio.proto getState($(P)ERROR,7) $(PORT)")
+	
+	field(ZNAM, "False")
+	field(ONAM, "True")
+}
