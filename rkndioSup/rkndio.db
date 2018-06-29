@@ -1,8 +1,22 @@
+record(bo, "$(P)DISABLE") 
+{
+  field(DESC, "Disable comms")
+  field(PINI, "YES")
+  field(VAL, "$(DISABLE=0)")
+  field(OMSL, "supervisory")
+  field(ZNAM, "COMMS ENABLED")
+  field(ONAM, "COMMS DISABLED")
+}
+
 record(stringin, "$(P)IDN"){
     field(DESC, "Identification string")
     field(DTYP, "stream")
     field(INP,  "@rkndio.proto get_idn $(PORT)")
     field(PINI, "YES")
+
+	info(alarm, "Rkndio")
+	
+	field(SDIS, "$(P)DISABLE")
 }
 
 record(stringin, "$(P)STATUS"){
@@ -10,131 +24,22 @@ record(stringin, "$(P)STATUS"){
     field(DTYP, "stream")
 	field(SCAN, "1 second")
     field(INP,  "@rkndio.proto get_status $(PORT)")
+	
+	info(INTEREST, "HIGH")
+	info(alarm, "Rkndio")
+	
+	field(SDIS, "$(P)DISABLE")
 }
 
 record(stringin, "$(P)ERROR"){
     field(DESC, "Error status of the device.")
     field(DTYP, "stream")
+	
 	field(SCAN, "1 second")
     field(INP,  "@rkndio.proto get_error $(PORT)")
-}
-
-record (bi, "$(P)PIN_2") {
-	field(DESC, "Digital Input Pin 2.")
-	field(SCAN, "1 second")
-    field(DTYP, "stream")
 	
-	field(INP,  "@rkndio.proto get_input($(P)ERROR,2) $(PORT)")
+	info(INTEREST, "HIGH")
+	info(alarm, "Rkndio")
 	
-	field(ZNAM, "FALSE")
-	field(ONAM, "TRUE")
-}
-
-record (bi, "$(P)PIN_3") {
-	field(DESC, "Digital Input Pin 3.")
-    field(DTYP, "stream")
-	field(SCAN, "1 second")
-	
-	field(INP,  "@rkndio.proto get_input($(P)ERROR,3) $(PORT)")
-	
-	field(ZNAM, "FALSE")
-	field(ONAM, "TRUE")
-}
-
-record (bi, "$(P)PIN_4") {
-	field(DESC, "Digital Input Pin 4.")
-    field(DTYP, "stream")
-	field(SCAN, "1 second")
-	
-	field(INP,  "@rkndio.proto get_input($(P)ERROR,4) $(PORT)")
-	
-	field(ZNAM, "FALSE")
-	field(ONAM, "TRUE")
-}
-
-record (bi, "$(P)PIN_5") {
-	field(DESC, "Digital Input Pin 5.")
-    field(DTYP, "stream")
-	field(SCAN, "1 second")
-	
-	field(INP,  "@rkndio.proto get_input($(P)ERROR,5) $(PORT)")
-	
-	field(ZNAM, "FALSE")
-	field(ONAM, "TRUE")
-}
-
-record (bi, "$(P)PIN_6") {
-	field(DESC, "Digital Input Pin 5.")
-    field(DTYP, "stream")
-	field(SCAN, "1 second")
-	
-	field(INP,  "@rkndio.proto get_input($(P)ERROR,6) $(PORT)")
-	
-	field(ZNAM, "FALSE")
-	field(ONAM, "TRUE")
-}
-
-record (bi, "$(P)PIN_7") {
-	field(DESC, "Digital Input Pin 7.")
-    field(DTYP, "stream")
-	field(SCAN, "1 second")
-	
-	field(INP,  "@rkndio.proto get_input($(P)ERROR,7) $(PORT)")
-	
-	field(ZNAM, "FALSE")
-	field(ONAM, "TRUE")
-}
-
-record (bo, "$(P)PIN_8") {
-	field(DESC, "Digital Output Pin 8.")
-    field(DTYP, "stream")
-	field(OUT,  "@rkndio.proto set_output($(P)ERROR,8) $(PORT)")
-	
-	field(ZNAM, "FALSE")
-	field(ONAM, "TRUE")
-}
-
-record (bo, "$(P)PIN_9") {
-	field(DESC, "Digital Output Pin 9.")
-    field(DTYP, "stream")
-	field(OUT,  "@rkndio.proto set_output($(P)ERROR,9) $(PORT)")
-	
-	field(ZNAM, "FALSE")
-	field(ONAM, "TRUE")
-}
-
-record (bo, "$(P)PIN_10") {
-	field(DESC, "Digital Output Pin 10.")
-    field(DTYP, "stream")
-	field(OUT,  "@rkndio.proto set_output($(P)ERROR,10) $(PORT)")
-	
-	field(ZNAM, "FALSE")
-	field(ONAM, "TRUE")
-}
-
-record (bo, "$(P)PIN_11") {
-	field(DESC, "Digital Output Pin 11.")
-    field(DTYP, "stream")
-	field(OUT,  "@rkndio.proto set_output($(P)ERROR,11) $(PORT)")
-	
-	field(ZNAM, "FALSE")
-	field(ONAM, "TRUE")
-}
-
-record (bo, "$(P)PIN_12") {
-	field(DESC, "Digital Output Pin 12.")
-    field(DTYP, "stream")
-	field(OUT,  "@rkndio.proto set_output($(P)ERROR,12) $(PORT)")
-	
-	field(ZNAM, "FALSE")
-	field(ONAM, "TRUE")
-}
-
-record (bo, "$(P)PIN_13") {
-	field(DESC, "Digital Output Pin 13.")
-    field(DTYP, "stream")
-	field(OUT,  "@rkndio.proto set_output($(P)ERROR,13) $(PORT)")
-	
-	field(ZNAM, "FALSE")
-	field(ONAM, "TRUE")
+	field(SDIS, "$(P)DISABLE")
 }

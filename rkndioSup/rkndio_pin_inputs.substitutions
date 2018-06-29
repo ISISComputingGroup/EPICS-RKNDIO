@@ -1,0 +1,10 @@
+file rkndio_pin_inputs.template {
+
+pattern {PORT, P, PIN_NUMBER}
+{"\$(PORT)", "\$(P)", "2"}
+{"\$(PORT)", "\$(P)", "3"}
+{"\$(PORT)", "\$(P)", "4"}
+{"\$(PORT)", "\$(P)", "5"}
+{"\$(PORT)", "\$(P)", "6"}
+{"\$(PORT)", "\$(P)", "7"}
+}
