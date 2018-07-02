@@ -1,0 +1,45 @@
+record(bo, "$(P)DISABLE") 
+{
+  field(DESC, "Disable comms")
+  field(PINI, "YES")
+  field(VAL, "$(DISABLE=0)")
+  field(OMSL, "supervisory")
+  field(ZNAM, "COMMS ENABLED")
+  field(ONAM, "COMMS DISABLED")
+}
+
+record(stringin, "$(P)IDN"){
+    field(DESC, "Identification string")
+    field(DTYP, "stream")
+    field(INP,  "@rkndio.proto get_idn $(PORT)")
+    field(PINI, "YES")
+
+	info(alarm, "Rkndio")
+	
+	field(SDIS, "$(P)DISABLE")
+}
+
+record(stringin, "$(P)STATUS"){
+    field(DESC, "Status of the device.")
+    field(DTYP, "stream")
+	field(SCAN, ".5 second")
+    field(INP,  "@rkndio.proto get_status $(PORT)")
+	
+	info(INTEREST, "HIGH")
+	info(alarm, "Rkndio")
+	
+	field(SDIS, "$(P)DISABLE")
+}
+
+record(stringin, "$(P)ERROR"){
+    field(DESC, "Error status of the device.")
+    field(DTYP, "stream")
+	
+	field(SCAN, ".5 second")
+    field(INP,  "@rkndio.proto get_error $(PORT)")
+	
+	info(INTEREST, "HIGH")
+	info(alarm, "Rkndio")
+	
+	field(SDIS, "$(P)DISABLE")
+}
