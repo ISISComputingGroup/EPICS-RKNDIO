@@ -1,4 +1,4 @@
-record (bi, "$(P)PIN_$(PIN_NUMBER)") {
+record (bi, "$(P)PIN:$(PIN_NUMBER)") {
 	field(DESC, "Digital Input Pin $(PIN_NUMBER).")
 	field(SCAN, ".1 second")
     field(DTYP, "stream")

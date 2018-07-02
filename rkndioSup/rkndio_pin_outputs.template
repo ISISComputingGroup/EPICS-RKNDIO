@@ -1,4 +1,4 @@
-record (bo, "$(P)PIN_$(PIN_NUMBER)") {
+record (bo, "$(P)PIN:$(PIN_NUMBER)") {
 	field(DESC, "Digital Output Pin $(PIN_NUMBER).")
     field(DTYP, "stream")
 	

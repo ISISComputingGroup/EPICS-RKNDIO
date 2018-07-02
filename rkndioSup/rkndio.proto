@@ -1,5 +1,14 @@
 Terminator = CR LF;
 
+# The function below runs only if the device returns "ERROR"
+# when getting getting input or setting output.
+
+mismatch_get_error {
+	in "ERROR";
+	out "ERR";	
+    in "(\$1)%39c";	
+}
+
 get_idn {
     out "*IDN?";	
     in "%39c";	
@@ -13,12 +22,6 @@ get_status {
 get_error {
     out "ERR";	
     in "%39c";	
-}
-
-mismatch_get_error {
-	in "ERROR";
-	out "ERR";	
-    in "(\$1)%39c";	
 }
 
 get_input {
